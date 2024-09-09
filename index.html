@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean India Programme</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carousel.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                
+                <img src="assets/images/logo.jpg" alt="Clean India Logo">
+            </div>
+            <div class="header-title">
+                <h1>Clean India</h1>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#join">Join Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="slideshow-container">
+
+       
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="assets/images/cleanindia1.webp" style="width:100%">
+         <div class="text">Don’t wait for change, be the change. Start with a cleaner India today!</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="assets/images/clean-india-2.png" style="width:100%">
+          <div class="text">Cleaner streets, greener cities. Together, we can make India sparkle!</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="assets/images/clean.jpg" style="width:100%">
+          <div class="text">Cleanliness is a shared responsibility. Together, we can build a cleaner nation!</div>
+        </div>
+    
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <section class="hero    ">
+            <h2>Making India Cleaner</h2>
+            <p>Join the movement towards a cleaner and greener India!</p>
+            <a href="#join" class="cta-button">Get Involved</a>
+        </section>
+      </div>
+
+    <section id="about">
+        <h2>About US</h2>
+        <p id="about-content">The Clean India Programme is a nationwide initiative dedicated to promoting cleanliness, hygiene, and environmental sustainability across the country. Rooted in the belief that a cleaner environment leads to healthier lives, our mission is to raise awareness about the importance of sanitation, waste management, and green practices.
+
+            Inspired by the Swachh Bharat Abhiyan launched in 2014, the Clean India movement seeks to engage citizens, communities, and organizations to take proactive steps in keeping public spaces, streets, and natural surroundings free from litter and pollution. We believe that change starts at the grassroots level, and together, we can create a cleaner, greener India for future generations.
+            
+            Our goals are simple:
+            
+            Promote Awareness: Educating people about proper waste disposal, recycling, and sanitation practices.
+            Community Participation: Encouraging individuals and communities to participate in local clean-up drives and environmental activities.
+            Sustainable Solutions: Advocating for long-term strategies to reduce waste, enhance sanitation infrastructure, and protect natural resources.</p>
+    </section>
+
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p id="mission-content">At Clean India, our mission is to create a cleaner, healthier, and more sustainable environment for all. We aim to inspire individuals, communities, and organizations to actively participate in maintaining cleanliness, promoting responsible waste management, and fostering a culture of environmental consciousness.
+
+            Our primary objectives include:
+            
+            Raising Awareness: Educating the public about the importance of cleanliness, sanitation, and sustainable practices.
+            Empowering Communities: Engaging citizens in local clean-up drives, tree plantation campaigns, and recycling efforts to build a cleaner, greener India.
+            Reducing Waste: Encouraging the reduction of single-use plastics, promoting recycling, and advocating for better waste management solutions.
+            Fostering a Clean Environment: Collaborating with local governments and organizations to ensure public spaces, streets, and waterways are free of litter and pollution.</p>
+    </section>
+
+    <section id="join">
+        <h2 id="join-h2">Join Us</h2>
+        <p id="join-text">Be a part of the change! Sign up to volunteer and contribute to a cleaner India.</p>
+        <form id="volunteer-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+           
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+
+         
+            <input type="text" name="streetAddress" placeholder="Street Address" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="stateProvince" placeholder="State/Province" required>
+            <input type="text" name="postalCode" placeholder="Postal Code" required>
+
+        
+            <select name="areaOfInterest" required>
+                <option value="">Select Your Area of Interest</option>
+                <option value="beachCleanup">Beach Cleanup</option>
+                <option value="parkRenewal">Park Renewal</option>
+                <option value="treePlantation">Tree Plantation</option>
+                <option value="recyclingWork">Recycling Work</option>
+            </select>
+            <textarea name="message" placeholder="Your Message (Optional)"></textarea>
+            <div>
+                <input type="checkbox" name="terms" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            <button type="submit" onclick="validateFormAndOpen()">Sign Up</button>
+
+        </form>
+        
+        <div id="formErrors" style="color: red;"></div>
+    </section>
+
+    <script>
+        function validateFormAndOpen() {
+            let formErrors = document.getElementById("formErrors");
+            let form = document.getElementById("volunteer-form");
+            let name = form["name"].value;
+            let email = form["email"].value;
+            let phone = form["phone"].value;
+            let areaOfInterest = form["areaOfInterest"].value;
+            let terms = form["terms"].checked;
+
+            formErrors.innerHTML = ""; 
+            let errorMessage = "";
+
+            if (name === "") errorMessage += "Name cannot be empty.<br>";
+            if (email === "") errorMessage += "Email cannot be empty.<br>";
+            if (phone === "" || !/^\d{10}$/.test(phone)) errorMessage += "Phone number must be 10 digits long.<br>";
+            if (areaOfInterest === "") errorMessage += "Please select your area of interest.<br>";
+            if (!terms) errorMessage += "You must agree to the terms and conditions.<br>";
+
+            if (errorMessage !== "") {
+                formErrors.innerHTML = errorMessage;
+            } else {
+                window.open('https://swachhbharatmission.ddws.gov.in/', '_blank');
+            }
+        }
+    </script>
+
+
+    <footer id="contact">
+        <p>Contact us at: <a href="https://www.pmindia.gov.in/en/major_initiatives/swachh-bharat-abhiyan/">test@cleanindia.com</a> | Phone: +91 8861781869</p>
+        <p>&copy; 2023 Clean India Programme</p>
+    </footer>
+
+</body>
+</html>
+
